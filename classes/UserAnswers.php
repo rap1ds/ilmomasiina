@@ -77,7 +77,7 @@ class UserAnswers{
 		$this->debugger->debug("Position set to " . $position, "setPosition");
 	}
 	
-	function getAnswerToQuestion($question){	
+	function getAnswerToQuestion($question){
 		// Makes the method to work both id and question parameter
 		$questionId = -1;
 		if(is_a($question, "Question")){
@@ -106,6 +106,10 @@ class UserAnswers{
 	
 	function getUserId(){
 		return $this->userId;
+	}
+
+	public function __toString(){
+	  return __CLASS__; //TODO: more information
 	}
 }
 ?>
