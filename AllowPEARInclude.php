@@ -7,6 +7,6 @@
  * author: mikko koski
  */
 
-ini_set('include_path', '/www/athene/pear/PEAR' . PATH_SEPARATOR . 
+ini_set('include_path', '/usr/lib/php/PEAR' . PATH_SEPARATOR . 
 ini_get('include_path'));
 ?>

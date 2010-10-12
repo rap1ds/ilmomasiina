@@ -8,7 +8,7 @@ require_once("CommonTools.php");
 $configurations = new Configurations();
 
 // Connection $conn is made in DBInterface.php
-require_once("../DBInterface.php");
+require_once(__DIR__."/../DBInterface.php");
 
 // To the ageLessThan function
 define("TIMEUNIT_DAYS", "days");
