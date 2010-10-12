@@ -1,7 +1,7 @@
 <?php
 
 // This enables full error reporting. Comment it when ilmomasiina is in product
-require_once("ErrorReportEnabler.php");
+//require_once("ErrorReportEnabler.php");
 
 /**
  * Global configurations
@@ -29,6 +29,7 @@ class Configurations {
 	// Administrators email address to where user should contact in case of signup failure
 	var $adminEmail = "<admin email>";
 	
+	//var $timeZone = "Europe/Helsinki";
 	/* * * * THIS IS THE END OF USER CONFIGURATIONS! * * * */
 	
 	
@@ -52,6 +53,8 @@ class Configurations {
 
 	function Configurations(){
 		$invalidConfigurations_array = $this->checkForInvalidConfigurations();
+		
+		date_default_timezone_set("Europe/Helsinki");
 		
 		if(count($invalidConfigurations_array) > 0){
 			// Some invalid configurations were found.
