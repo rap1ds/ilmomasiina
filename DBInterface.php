@@ -30,7 +30,7 @@ define("DEBUG", "1");
  
 
 // Haetaan tarvittava PEAR-paketti
-// require_once 'AllowPEARInclude.php';
+require_once 'AllowPEARInclude.php';
 require_once 'MDB2.php';
 
 $dsn = array(
