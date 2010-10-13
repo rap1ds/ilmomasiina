@@ -19,10 +19,10 @@
  */
 
 define("DBTYPE", "mysql");    // Tietokannan tyyppi (esim mysql, pgsql)
-define("USERNAME", "");       // Kannan käyttäjänimi
-define("PASSWORD", "");       // Salasana
+define("USERNAME", "root");       // Kannan käyttäjänimi
+define("PASSWORD", "root");       // Salasana
 define("HOST", "localhost");  // Osoite tietokannan hostiin
-define("DATABASE", "");       // Tietokannan nimi
+define("DATABASE", "ilmomasiina");       // Tietokannan nimi
 
 define("DEBUG", "1");
 

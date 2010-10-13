@@ -1,6 +1,7 @@
 <?php
 
-/* Requirements */ 
+/* Requirements */
+require_once("../classes/ErrorReportEnabler.php");
 require_once("../classes/Configurations.php");
 require_once("../classes/Page.php");
 require_once("../classes/SignupGadgets.php");
