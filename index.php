@@ -3,19 +3,47 @@
 /* Requirements */
 require_once("classes/ErrorReportEnabler.php");
 require_once("classes/Configurations.php");
+require_once("classes/Request.php");
+
+$configurations		= new Configurations();
+
+// Bootstrapper
+
+$requestedURI = $_SERVER['REQUEST_URI'];
+
+if(strpos($requestedURI, $configurations->webRoot) !== 0){
+    die("Probably wrong webRoot: " . $configurations->webRoot);
+}
+
+$request = new Request(substr($requestedURI, strlen($configurations->webRoot)));
+
+if($request->isAdmin()){
+    require_once 'admin/index.php';
+} else {
+
+switch ($request->getAction()) {
+    case "signup":
+
+        require_once 'signup.php';
+
+    break;
+
+    default:
+
+require_once("classes/Configurations.php");
 require_once("classes/Page.php");
 require_once("classes/SignupGadgets.php");
 require_once("classes/Debugger.php");
 require_once("classes/SignupGadget.php");
 require_once("classes/CommonTools.php");
 
-/* Implementations of the most critical classes */
-$configurations                 = new Configurations();
+// Implementations of the most critical classes
+// $configurations                 = new Configurations();
 $page                           = new Page();
 $debugger			= new Debugger();
 $database			= new Database();
 
-/* The code */
+// The code
 $signupGadgets = new SignupGadgets();
 $signupGadgets->selectOpenGadgetsOrClosedDuringLastDays(7);
 
@@ -30,7 +58,7 @@ $page->addContent("</tr>");
 
 foreach($signupGadgets_array as $gadget){
 	$page->addContent("<tr class=\"answer-row\">");
-	$page->addContent("<td class=\"signup-name\"><a href=\"signup.php?signupid=".$gadget->getId()."\">".$gadget->getTitle()."</a></td>");
+	$page->addContent("<td class=\"signup-name\"><a href=\"signup/".$gadget->getId()."\">".$gadget->getTitle()."</a></td>");
 	$page->addContent("<td class=\"signup-opens\">".$gadget->getOpeningTime()."</td>");
 	$page->addContent("<td class=\"signup-closes\">".$gadget->getClosingTime()."</td>");
 	
@@ -50,4 +78,8 @@ $page->addContent("</table>");
 
 $page->printPage();
 
-?>
+break;
+
+}
+
+}

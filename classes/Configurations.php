@@ -14,11 +14,11 @@ class Configurations {
 	var $debugMode = false;
 	
 	// Absolute path to app
-	// TODO How do we take care of Windows user and slashes... ?? Haha.. lol.
+	// TODO How do we take care of Windows user and slashes...
 	var $rootDir = "<add your root here>"; /* Must end to slash (/) */
 	
 	// Webroot
-	var $webRoot = "<add your webroot here>";
+	var $webRoot = "/ilmomasiina/Ilmomasiina/";
 	
 	// Site template (relatively to root)
 	var $template = "templates/template_empty.php";

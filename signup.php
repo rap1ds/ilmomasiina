@@ -11,14 +11,14 @@ require_once("classes/SignupGadgetAnswerFormater.php");
 
 /* Implementations of the most critical classes */
 $configurations		= new Configurations();
-$page				= new Page();
+$page				= new Page(1);
 $debugger			= new Debugger();
 $database			= new Database();
 
 /* The code */
 
 // Chech the id
-$signupid = CommonTools::GET('signupid');
+$signupid = $request->getSignupId();
 $sort = CommonTools::GET('sort');
 
 if($signupid == null || !is_int(intval($signupid)) || $signupid < 0){
