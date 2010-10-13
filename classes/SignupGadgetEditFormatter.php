@@ -64,7 +64,7 @@ class SignupGadgetEditFormater{
 		if($edit){
 			$return .= "<form action=\"save_edit.php?signupid=$id\" method=\"post\">\n";
 		} else {
-			$return .= "<form action=\"save.php\" method=\"post\">\n";
+			$return .= "<form action=\"save\" method=\"post\">\n";
 		}
 		return $return;
 	}

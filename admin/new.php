@@ -1,13 +1,13 @@
 <?php
 
 /* Requirements */ 
-require_once("../classes/Configurations.php");
-require_once("../classes/Page.php");
-require_once("../classes/SignupGadgets.php");
-require_once("../classes/Debugger.php");
-require_once("../classes/SignupGadget.php");
-require_once("../classes/CommonTools.php");
-require_once("../classes/SignupGadgetEditFormatter.php");
+require_once("classes/Configurations.php");
+require_once("classes/Page.php");
+require_once("classes/SignupGadgets.php");
+require_once("classes/Debugger.php");
+require_once("classes/SignupGadget.php");
+require_once("classes/CommonTools.php");
+require_once("classes/SignupGadgetEditFormatter.php");
 
 /* Implementations of the most critical classes */
 $configurations		= new Configurations();

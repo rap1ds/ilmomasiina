@@ -12,12 +12,12 @@ require_once("classes/SignupGadgetQuestionFormater.php");
 
 /* Implementations of the most critical classes */
 $configurations		= new Configurations();
-$page				= new Page();
+$page				= new Page(1);
 $debugger			= new Debugger();
 $database			= new Database();
 
 /* Variables from outside */
-$signupId = CommonTools::GET("signupid");
+$signupId = $request->getSignupId();
 
 /* The code */
 
@@ -44,7 +44,7 @@ $page->addContent("<p id=\"signup-position-info\"><span>Olet sijalla <strong>".$
 $page->addContent("</div>");
 
 $page->addContent("<div id=\"questions\">");
-$page->addContent("<form id=\"questions-form\" method=\"post\" action=\"save.php\">");
+$page->addContent("<form id=\"questions-form\" method=\"post\" action=\"". $configurations->webRoot . "save\">");
 $page->addContent("<input type=\"hidden\" name=\"signupid\" value=\"$signupId\">");
 $page->addContent("<input type=\"hidden\" name=\"userid\" value=\"".$user->getId()."\">");
 $page->addContent(

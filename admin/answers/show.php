@@ -1,13 +1,13 @@
 <?php
 
 /* Requirements */ 
-require_once("../../classes/Configurations.php");
-require_once("../../classes/Page.php");
-require_once("../../classes/SignupGadgets.php");
-require_once("../../classes/Debugger.php");
-require_once("../../classes/SignupGadget.php");
-require_once("../../classes/CommonTools.php");
-require_once("../../classes/SignupGadgetAnswerFormater.php");
+require_once("classes/Configurations.php");
+require_once("classes/Page.php");
+require_once("classes/SignupGadgets.php");
+require_once("classes/Debugger.php");
+require_once("classes/SignupGadget.php");
+require_once("classes/CommonTools.php");
+require_once("classes/SignupGadgetAnswerFormater.php");
 
 /* Implementations of the most critical classes */
 $configurations		= new Configurations();
@@ -16,7 +16,7 @@ $debugger			= new Debugger();
 $database			= new Database();
 
 // Create gadget and get the data from database
-$signupId = CommonTools::GET("signupid");
+$signupId = $request->getSignupId();
 $sort = CommonTools::GET("sort");
 $signupGadget = new SignupGadget($signupId);
 $signupGadget->sortAnswers($sort);

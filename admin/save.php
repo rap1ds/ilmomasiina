@@ -1,11 +1,11 @@
 <?php
 
 /* Requirements */ 
-require_once("../classes/Configurations.php");
-require_once("../classes/Page.php");
-require_once("../classes/Debugger.php");
-require_once("../classes/SignupGadget.php");
-require_once("../classes/CommonTools.php");
+require_once("classes/Configurations.php");
+require_once("classes/Page.php");
+require_once("classes/Debugger.php");
+require_once("classes/SignupGadget.php");
+require_once("classes/CommonTools.php");
 
 /* Implementations of the most critical classes */
 $configurations		= new Configurations();
@@ -25,7 +25,7 @@ $page->addContent("<p>Ulkopuoliset käyttäjät voivat tarvittaessa katsoa ilmoitta
 		"vastauksia osoitteesta <a href=\"$linkToAnswers\">$linkToAnswers</a> " .
 		"masiinakohtaisella salasanalla. </p>");
 $page->addContent("<p>Salasana tälle masiinalle on <strong>$password</strong>");
-$page->addContent("<p><a href=\"index.php\">Palaa etusivulle</a></p>");
+$page->addContent("<p><a href=\"". $configurations->webRoot . "\">Palaa etusivulle</a></p>");
 $page->printPage();
 
 ?>

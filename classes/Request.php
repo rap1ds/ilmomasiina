@@ -16,26 +16,36 @@ class Request {
     private $signupId;
 
     public function Request($request) {
-        $requestParts = explode("/", $request);
+        
+        $requestParts = explode("?", $request);
 
-        $firstPart = $requestParts[0];
+        $requestBody = $requestParts[0];
+
+        if(count($requestParts) > 1){
+            // TODO Do something with the query part?
+            $requestQuery = $requestParts[1];
+        }
+
+        $requestBodyParts = explode("/", $requestBody);
+
+        $firstPart = $requestBodyParts[0];
 
         if($firstPart === "admin"){
             $this->isAdmin = true;
 
-            if(count($requestParts) > 1){
-                $this->action = $requestParts[1];
+            if(count($requestBodyParts) > 1){
+                $this->action = $requestBodyParts[1];
             }
 
-            if(count($requestParts) > 2){
-                $this->signupId = $requestParts[2];
+            if(count($requestBodyParts) > 2){
+                $this->signupId = $requestBodyParts[2];
             }
 
         } else {
             $this->action = $firstPart;
 
-            if(count($requestParts) > 1){
-                $this->signupId = $requestParts[1];
+            if(count($requestBodyParts) > 1){
+                $this->signupId = $requestBodyParts[1];
             }
         }
     }

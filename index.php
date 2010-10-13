@@ -18,14 +18,37 @@ if(strpos($requestedURI, $configurations->webRoot) !== 0){
 $request = new Request(substr($requestedURI, strlen($configurations->webRoot)));
 
 if($request->isAdmin()){
-    require_once 'admin/index.php';
+    
+    switch ($request->getAction()){
+        case "showanswers":
+            require_once 'admin/answers/show.php';
+        break;
+        case "new":
+            require_once 'admin/new.php';
+        break;
+        case "save":
+            require_once 'admin/save.php';
+        break;
+        default:
+            
+            require_once 'admin/index.php';
+            
+    }
+
 } else {
 
 switch ($request->getAction()) {
     case "signup":
-
         require_once 'signup.php';
-
+    break;
+    case "queue":
+        require_once 'queue.php';
+    break;
+    case "confirm":
+        require_once 'confirm.php';
+    break;
+    case "save":
+        require_once 'save.php';
     break;
 
     default:

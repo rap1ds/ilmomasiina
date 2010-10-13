@@ -49,7 +49,7 @@ $page->addContent("</tr>");
 
 foreach($signupGadgets_array as $gadget){
 	$page->addContent("<tr class=\"answer-row\">");
-	$page->addContent("<td class=\"signup-name\"><a href=\"answers/show.php?signupid=".$gadget->getId()."\">".$gadget->getTitle()."</td>");
+	$page->addContent("<td class=\"signup-name\"><a href=\"showanswers/".$gadget->getId()."\">".$gadget->getTitle()."</td>");
 	$page->addContent("<td class=\"signup-opens\">".$gadget->getOpeningTime()."</td>");
 	$page->addContent("<td class=\"signup-closes\">".$gadget->getClosingTime()."</td>");
 		
@@ -98,7 +98,7 @@ foreach($signupGadgets->getAllSignupGadgetYears() as $year){
 
 $page->addContent("</p><br />");
 
-$page->addContent("<p><strong><a href=\"new.php\"> >> Luo uusi ilmomasiina </a></strong></p>");
+$page->addContent("<p><strong><a href=\"new\"> >> Luo uusi ilmomasiina </a></strong></p>");
 
 $page->printPage();
 

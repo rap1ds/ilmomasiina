@@ -41,8 +41,8 @@ if($signupGadget->isOpen()){
 	$page->addContent("<p id=\"signup-open\"><span>Ilmoittautuminen on auki</span></p>");
 	$page->addContent("</div>");
 	
-	$page->addContent("<form id=\"signup-button-form\" method=\"get\" action=\"queue.php\">");
-	$page->addContent("<input type=\"hidden\" name=\"signupid\" value=\"$signupid\" />");
+	$page->addContent("<form id=\"signup-button-form\" method=\"get\" action=\"" . $configurations->webRoot . "queue/" . $signupid . "\">");
+	// $page->addContent("<input type=\"hidden\" name=\"signupid\" value=\"$signupid\" />");
 	$page->addContent("<input id=\"signup-button\" value=\"Ilmoittaudu\" type=\"submit\" />");
 	$page->addContent("</form>");
 	
