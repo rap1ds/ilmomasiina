@@ -4,6 +4,7 @@
 require_once("classes/ErrorReportEnabler.php");
 require_once("classes/Configurations.php");
 require_once("classes/Request.php");
+require_once("classes/AdminPasswordProtector.php");
 
 $configurations		= new Configurations();
 
@@ -18,6 +19,13 @@ if(strpos($requestedURI, $configurations->webRoot) !== 0){
 $request = new Request(substr($requestedURI, strlen($configurations->webRoot)));
 
 if($request->isAdmin()){
+
+    $passwordProtector = new AdminPasswordProtector();
+
+    if($passwordProtector->authenticate() !== true){
+        // Needs authentication
+        die();
+    }
     
     switch ($request->getAction()){
         case "showanswers":
