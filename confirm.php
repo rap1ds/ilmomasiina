@@ -53,7 +53,7 @@ $page->addContent("<input type=\"hidden\" name=\"question_ids\" value=\"".$signu
 $page->addContent("<input id=\"confirm-button\" type=\"submit\" value=\"Vahvista\">");
 $page->addContent("</form>");
 
-$page->addContent("<form id=\"cancel-form\" method=\"post\" action=\"cancel.php\">");
+$page->addContent("<form id=\"cancel-form\" method=\"post\" action=\"". $configurations->webRoot . "cancel\">");
 $page->addContent("<input id=\"cancel-button\" type=\"submit\" value=\"Peru ilmoittautuminen\">");
 $page->addContent("</form>");
 $page->addContent("</div>");

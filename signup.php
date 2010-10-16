@@ -23,7 +23,7 @@ $sort = CommonTools::GET('sort');
 
 if($signupid == null || !is_int(intval($signupid)) || $signupid < 0){
 	// Id is not an 
-	header("Location: index.php");
+	header("Location: " . $configurations->webRoot);
 }
 
 // Create gadget and get the data from database
@@ -80,5 +80,3 @@ if($signupGadget->isOpen()){
 $page->printPage();
 
 /* Functions */
-
-?>

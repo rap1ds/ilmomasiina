@@ -98,7 +98,7 @@ if($signupGadget->getSendConfirmation()){
 $user->setConfirmed(true);
 $user->destroySessionId();
 
-header("Location: signup.php?signupid=$signupId");
+header("Location: " . $configurations->webRoot . "signup/$signupId");
 
 
 function parseCheckboxAnswer($question){

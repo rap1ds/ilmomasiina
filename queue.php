@@ -11,7 +11,7 @@ require_once("classes/User.php");
 
 /* Implementations of the most critical classes */
 $configurations		= new Configurations();
-$page				= new Page();
+$page				= new Page(1);
 $debugger			= new Debugger();
 $database			= new Database();
 
@@ -19,7 +19,7 @@ $database			= new Database();
 
 // Chech the id
 $signupid = $request->getSignupId();
-$action = CommonTools::GET('action');
+$action = $request->getAction();
 
 if($signupid == null || !is_int(intval($signupid)) || $signupid < 0){
 	// Id is not an integer
@@ -68,9 +68,9 @@ else {
 					"Ennen kuin voit ilmoittautua toiseen ilmomasiinaan sinun pitää vahvistaa tai peruuttaa" .
 					" aikasemmat vahvistamattomat ilmoittautumiset.</p>");
 			$page->addContent("<p>Valitse mitä haluat tehdä:</p>");
-			$page->addContent("<p> >> <a href=\"queue.php?action=continueandcancelold&signupid=".$user->getNewSignupId()."\">Peruuta aiempi vahvistamaton ilmoittautuminen ja " .
+			$page->addContent("<p> >> <a href=\"" . $configurations->webRoot . "continueandcancelold/".$user->getNewSignupId()."\">Peruuta aiempi vahvistamaton ilmoittautuminen ja " .
 					"siirry eteenpäin</a></p>");
-			$page->addContent("<p> >> <a href=\"queue.php?action=confirmold&signupid=".$user->getOldSignupId()."\">Siirry vahvistamaan aiempi ilmoittautuminen</a></p>");	
+			$page->addContent("<p> >> <a href=\"" . $configurations->webRoot . "confirmold/".$user->getOldSignupId()."\">Siirry vahvistamaan aiempi ilmoittautuminen</a></p>");
 			$page->printPage();
 		} else {
 			header("Location: " . $configurations->webRoot . "confirm/".$user->getNewSignupId());

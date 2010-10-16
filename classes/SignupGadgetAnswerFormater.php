@@ -77,7 +77,9 @@ class SignupGadgetAnswerFormater{
 	}
 	
 	function formatConfirmedAnswerRow($answersByUser, $questions, $position, $adminMode){
-		$rowClass = SignupGadgetAnswerFormater::getRowClass();
+		$configurations = CommonTools::getConfigurations();
+                $webRoot = $configurations->webRoot;
+                $rowClass = SignupGadgetAnswerFormater::getRowClass();
 		
 		$return  = "<tr class=\"$rowClass\">";
 		
@@ -99,8 +101,8 @@ class SignupGadgetAnswerFormater{
 		}
 		
 		if($adminMode && $lastAnswer != null){
-			$return .= "<td class=\"edit-answer\"><a href=\"edit.php?userid=".$lastAnswer->getUserId()."&signupid=".$lastAnswer->getSignupId()."\">[muokkaa]</a></td>";
-	 		$return .= "<td class=\"delete-answer\"><a href=\"delete.php?userid=".$lastAnswer->getUserId()."&signupid=".$lastAnswer->getSignupId()."\">[poista]</a></td>";
+			$return .= "<td class=\"edit-answer\"><a href=\"" . $webRoot . "admin/editanswer/" . $lastAnswer->getSignupId() . "/?userid=".$lastAnswer->getUserId()."\">[muokkaa]</a></td>";
+	 		$return .= "<td class=\"delete-answer\"><a href=\"" . $webRoot . "admin/deleteanswer/". $lastAnswer->getSignupId() ."/?userid=".$lastAnswer->getUserId()."\">[poista]</a></td>";
 		}
 	 	$return .= "</tr>\n";
 		return $return;

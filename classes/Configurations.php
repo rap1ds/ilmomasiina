@@ -11,7 +11,7 @@ class Configurations {
 	/* * * * USER CONFIGURATIONS BEGIN * * * */
 	
 	// Debugging
-	var $debugMode = false;
+	var $debugMode = true;
 	
 	// Absolute path to app
 	// TODO How do we take care of Windows user and slashes...

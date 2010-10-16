@@ -1,14 +1,14 @@
 <?php
 
 /* Requirements */ 
-require_once("../../classes/Configurations.php");
-require_once("../../classes/Page.php");
-require_once("../../classes/Debugger.php");
-require_once("../../classes/Database.php");
-require_once("../../classes/CommonTools.php");
-require_once("../../classes/User.php");
-require_once("../../classes/SignupGadget.php");
-require_once("../../classes/Answer.php");
+require_once("classes/Configurations.php");
+require_once("classes/Page.php");
+require_once("classes/Debugger.php");
+require_once("classes/Database.php");
+require_once("classes/CommonTools.php");
+require_once("classes/User.php");
+require_once("classes/SignupGadget.php");
+require_once("classes/Answer.php");
 
 /* Implementations of the most critical classes */
 $configurations		= new Configurations();
@@ -74,7 +74,7 @@ if(count($notAnsweredRequired) > 0){
 	}
 }
 
-header("Location: show.php?signupid=$signupId");
+header("Location: " . $configurations->webRoot . "admin/showanswers/$signupId");
 
 function parseCheckboxAnswer($question){
 	global $userId, $debugger;
@@ -110,5 +110,3 @@ function getNotAnsweredRequiredIds($answers){
 	}
 	return $notAnsweredRequired;
 }
-
-?>

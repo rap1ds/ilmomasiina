@@ -1,12 +1,12 @@
 <?php
 
 /* Requirements */ 
-require_once("../classes/Configurations.php");
-require_once("../classes/Page.php");
-require_once("../classes/SignupGadgets.php");
-require_once("../classes/Debugger.php");
-require_once("../classes/SignupGadget.php");
-require_once("../classes/CommonTools.php");
+require_once("classes/Configurations.php");
+require_once("classes/Page.php");
+require_once("classes/SignupGadgets.php");
+require_once("classes/Debugger.php");
+require_once("classes/SignupGadget.php");
+require_once("classes/CommonTools.php");
 
 /* Implementations of the most critical classes */
 $configurations		= new Configurations();
@@ -31,7 +31,7 @@ $page->addContent("</tr>");
 
 foreach($signupGadgets_array as $gadget){
 	$page->addContent("<tr class=\"answer-row\">");
-	$page->addContent("<td class=\"signup-name\"><a href=\"show.php?signupid=".$gadget->getId()."\">".$gadget->getTitle()."</td>");
+	$page->addContent("<td class=\"signup-name\"><a href=\"" . $configurations->webRoot . "showanswers/".$gadget->getId()."\">".$gadget->getTitle()."</td>");
 	$page->addContent("<td class=\"signup-opens\">".$gadget->getOpeningTime()."</td>");
 	$page->addContent("<td class=\"signup-closes\">".$gadget->getClosingTime()."</td>");
 		

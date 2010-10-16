@@ -18,6 +18,6 @@ $database			= new Database();
 $user = new User(-1);
 $user->cancelUnconfirmedSignup();
 
-header("Location: index.php");
+header("Location: " . $configurations->webRoot);
 
 ?>

@@ -23,14 +23,37 @@ if($request->isAdmin()){
         case "showanswers":
             require_once 'admin/answers/show.php';
         break;
+        case "editanswer":
+            require_once 'admin/answers/edit.php';
+        break;
+        case "updateanswer":
+            require_once 'admin/answers/save.php';
+        break;
         case "new":
             require_once 'admin/new.php';
         break;
         case "save":
             require_once 'admin/save.php';
         break;
+        case "update":
+            require_once 'admin/save_edit.php';
+        break;
+        case "edit":
+            require_once 'admin/edit.php';
+        break;
+        case "delete":
+            require_once 'admin/delete.php';
+        break;
+        case "delete-confirmed":
+            require_once 'admin/delete.php';
+        break;
+        case "deleteanswer":
+            require_once 'admin/answers/delete.php';
+        break;
+        case "changestate":
+            require_once 'admin/changestate.php';
+        break;
         default:
-            
             require_once 'admin/index.php';
             
     }
@@ -42,6 +65,8 @@ switch ($request->getAction()) {
         require_once 'signup.php';
     break;
     case "queue":
+    case "confirmold":
+    case "continueandcancelold":
         require_once 'queue.php';
     break;
     case "confirm":
@@ -50,7 +75,18 @@ switch ($request->getAction()) {
     case "save":
         require_once 'save.php';
     break;
-
+    case "cancel":
+        require_once 'cancel.php';
+    break;
+    case "answers":
+        require_once 'answers/index.php';
+    break;
+    case "showanswers":
+        require_once 'answers/show.php';
+    break;
+    case "csvoutput":
+        require_once 'answers/csv_output.php';
+    break;
     default:
 
 require_once("classes/Configurations.php");

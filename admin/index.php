@@ -61,8 +61,8 @@ foreach($signupGadgets_array as $gadget){
 		$page->addContent("<td class=\"open-close-state\"><span class=\"signup-closed\">Sulkeutunut</td>\n");
 	}
 	
-	$page->addContent("<td class=\"signup-edit\"><a href=\"edit.php?signupid=".$gadget->getId()."\">[muokkaa]</a></td>");
-	$page->addContent("<td class=\"signup-edit\"><a href=\"delete.php?signupid=".$gadget->getId()."\">[poista]</a></td>");
+	$page->addContent("<td class=\"signup-edit\"><a href=\"" . $configurations->webRoot . "admin/edit/" . $gadget->getId(). "\">[muokkaa]</a></td>");
+	$page->addContent("<td class=\"signup-edit\"><a href=\"". $configurations->webRoot . "admin/delete/".$gadget->getId()."\">[poista]</a></td>");
 	
 	$changeStateText = "";
 	if($gadget->isOpen()){
@@ -73,7 +73,7 @@ foreach($signupGadgets_array as $gadget){
 		$changeStateText = "[avaa]";
 	}
 	
-	$page->addContent("<td class=\"signup-change-state\"><a href=\"changestate.php?signupid=".$gadget->getId()."\">$changeStateText</a></td>");
+	$page->addContent("<td class=\"signup-change-state\"><a href=\"" . $configurations->webRoot . "admin/changestate/".$gadget->getId()."\">$changeStateText</a></td>");
 	
 	$page->addContent("</tr>");
 	

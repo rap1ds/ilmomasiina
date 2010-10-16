@@ -5,7 +5,8 @@ class SignupGadgetEditFormater{
 	// FIXME Clean up this one! The action of the form should not be printed from the class
 	// Check how the other gadget's are printed
 	function getSignupGadgetEditInPrintableFormat($signupGadget = null, $edit = false){
-		
+
+                $configurations = CommonTools::getConfigurations();
 		$debugger = CommonTools::getDebugger();
 		$page 	  = CommonTools::getPage();
 		
@@ -26,6 +27,7 @@ class SignupGadgetEditFormater{
 		$sendConfirmation = false;
 		$confirmationMailMessage = "";
 		$questions 		= array();
+                $webRoot = $configurations->webRoot;
 		
 		// sets signupgadget specified values if gadget is not null
 		if($signupGadget != null){
@@ -42,7 +44,7 @@ class SignupGadgetEditFormater{
 		
 		$output = "";
 		
-		$output .= SignupGadgetEditFormater::formatHeader($edit, $id);
+		$output .= SignupGadgetEditFormater::formatHeader($edit, $id, $webRoot);
 		$output .= SignupGadgetEditFormater::formatTitle($title);
 		$output .= SignupGadgetEditFormater::formatDescription($description);
 		$output .= SignupGadgetEditFormater::formatEventDate($event_date);
@@ -57,14 +59,14 @@ class SignupGadgetEditFormater{
 		
 	}
 	
-	function formatHeader($edit, $id){
+	function formatHeader($edit, $id, $webRoot){
 		$return = "";
 		$return .= "<h3 id=\"new-signup-title\">Luo uusi ilmo</h1>\n";
 		$return .= "<p id=\"no-check-warning\">HUOM! Masiina ei tarkistele syöttämiäsi arvojen oikeellisuutta, joten ole huolellinen</p>\n";
 		if($edit){
-			$return .= "<form action=\"save_edit.php?signupid=$id\" method=\"post\">\n";
+			$return .= "<form action=\"" . $webRoot . "admin/update/$id\" method=\"post\">\n";
 		} else {
-			$return .= "<form action=\"save\" method=\"post\">\n";
+			$return .= "<form action=\"" . $webRoot . "admin/save\" method=\"post\">\n";
 		}
 		return $return;
 	}
