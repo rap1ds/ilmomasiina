@@ -42,16 +42,14 @@ $page->addContent("<input type=\"submit\" value=\"OK\" /></form>");
 	if($signupGadget->isOpen()){	
 		$page->addContent("<p class=\"signupOpen\">Ilmoittautuminen on auki</p>");
 		$page->addContent(SignupGadgetAnswerFormater::getAnswersInPrintableFormat($signupGadget, true));
-		$page->addContent("<p class=\"csv-output\"><a href=\"".$configurations->webRoot. "csvoutput/$signupId\">Vastaukset csv-muodossa</a></p>");
+		$page->addContent("<p class=\"csv-output\"><a href=\"".$configurations->webRoot. "csvoutput/$signupId/?password=$passwordFromUser\">Vastaukset csv-muodossa</a></p>");
 	} else if ($signupGadget->isClosed()){
 		$page->addContent("<p class=\"signupClosed\">Ilmoittautuminen on sulkeutunut</p>");
 		$page->addContent(SignupGadgetAnswerFormater::getAnswersInPrintableFormat($signupGadget, true));
-		$page->addContent("<p class=\"csv-output\"><a href=\"".$configurations->webRoot. "csvoutput/$signupId\">Vastaukset csv-muodossa</a></p>");
+		$page->addContent("<p class=\"csv-output\"><a href=\"".$configurations->webRoot. "csvoutput/$signupId/?password=$passwordFromUser\">Vastaukset csv-muodossa</a></p>");
 	} else {
 		$page->addContent("<p class=\"signupNotYetOpen\">Ilmoittautuminen on avautuu " . $signupGadget->getReadableOpeningTime() ."</p>");
 	}
 }
 
 $page->printPage();
-
-?>
