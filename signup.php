@@ -30,6 +30,9 @@ if($signupid == null || !is_int(intval($signupid)) || $signupid < 0){
 $signupGadget = new SignupGadget($signupid);
 $signupGadget->sortAnswers($sort);
 
+//Set page title
+$page->title = $signupGadget->getTitle();
+
 // Prints title and description
 $page->addContent("<div id=\"signup-info\">");
 $page->addContent("<h3 id=\"signup-title\"><span>" . $signupGadget->getTitle() . "</span></h3>");

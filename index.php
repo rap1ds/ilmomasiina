@@ -109,6 +109,9 @@ $signupGadgets->selectOpenGadgetsOrClosedDuringLastDays(7);
 // Get all selected gadgets to array
 $signupGadgets_array = $signupGadgets->getSignupGadgets();
 
+//Set the default title
+$page->title = "Ilmomasiina";
+
 // Print table headers
 $page->addContent("<table id=\"signup-gadgets\">");
 $page->addContent("<tr id=\"signup-header-row\">");
