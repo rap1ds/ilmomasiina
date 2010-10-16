@@ -20,5 +20,3 @@ $signupGadget = new SignupGadget($signupId);
 header('Content-type: text/csv');
 header('Content-Disposition: attachment; filename="ilmo'.$signupId.'.csv"');
 print(CsvFormater::getAnswersInCsvFormat($signupGadget));
- 
-?>
