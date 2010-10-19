@@ -206,10 +206,11 @@ function createQuestionNum(){
 function createQuestion(value){
 	var question = document.createElement("input");
 	question.setAttribute("type", "text");
-	
+		
 	// Asetetaan kyssäri, jos sellaiselle on jo olemassa arvo
-	question.setAttribute("value", value);
-	
+	if (value != null){
+	  question.setAttribute("value", value);
+  }
 	question.setAttribute("name", 'question_' + questions);
 	
 	// Asetetaan class-attribuutti. Kiitos IE:n vieraile sivulla:
