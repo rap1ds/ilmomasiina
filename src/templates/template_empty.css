@@ -1,0 +1,51 @@
+
+/* Body of the document */
+body#signup-gadget{ }
+
+/* Title of the signup */
+h1{ }
+
+/* Main container div */
+div#container{ }
+
+/* The header container */
+div#header{ }
+
+/* The header of every page */
+h1#ilmomasiina-title{ }
+
+/* Container of Athene guild info */
+h2#athene-quild{ }
+
+/* Div for error messages */
+div#error{ }
+
+/* Div for main content */
+div#main{ }
+
+/* Signup gadgets table */
+table#signup-gadgets{ }
+
+/* The headers of signup gadgets table */
+th#signup-name-header{ }
+th#signup-opens-header{ }
+th#signup-closes-header{ }
+th#open-close-state-header{ }
+
+/* Signup gadgets list */
+tr.answer-row{ }
+td.signup-name{ }
+td.signup-opens{ }
+td.signup-closes{ }
+td.open-close-state{ }
+
+/* Open/close states in the table */
+span.signup-open{ }
+span.signup-closed{ }
+span.signup-not-yet-open{ }
+
+/* Contact info in case of failure */
+div#contact{ }
+
+/* Div for debug messages */
+div#debug{ }
