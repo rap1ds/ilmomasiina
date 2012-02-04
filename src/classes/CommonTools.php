@@ -175,7 +175,7 @@ class CommonTools{
 		} else {
 			// Removes braces (aaltosulkeet)
 			$tempString = substr($string, 1, -1);
-			$array = split(",", $tempString);
+			$array = explode(",", $tempString);
 			
 			// Remove double quotes if needed
 			// SQL adds double quotes around value with two or more words, 

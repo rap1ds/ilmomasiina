@@ -23,7 +23,7 @@ $signupGadget = new SignupGadget($signupId);
 
 /* The code */
 
-$page->addContent("<form id=\"kysymykset\" method=\"post\" action=\"" . $configurations->webRoot . "admin/updateanswer/\">");
+$page->addContent("<form id=\"kysymykset\" method=\"post\" action=\"" . $configurations->webRoot . "admin/updateanswer\">");
 $page->addContent("<input type=\"hidden\" name=\"userid\" value=\"".$userId."\">");
 $page->addContent("<input type=\"hidden\" name=\"signupid\" value=\"".$signupId."\">");
 $page->addContent(
