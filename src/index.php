@@ -80,6 +80,9 @@ if ($request->isError()) {
             case "changestate":
                 require_once 'admin/changestate.php';
                 break;
+            case "csvoutput":
+                require_once 'admin/answers/csv_output.php';
+                break;
             default:
                 require_once 'admin/index.php';
         }
