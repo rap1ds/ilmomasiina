@@ -1,8 +1,7 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
-RewriteEngine on
-RewriteRule !.(js|ico|gif|jpg|png|css)$ index.php
+RewriteRule !.(js|ico|gif|jpg|png|css)$ index.php [E=REMOTE_USER:%{HTTP:Authorization},L]
 
 </IfModule>
 <IfModule !mod_rewrite.c>

@@ -43,7 +43,7 @@ if ($request->isError()) {
 
         if ($passwordProtector->authenticate() !== true) {
             // Needs authentication
-            die();
+            die("You failed to authenticate.");
         }
 
         switch ($request->getAction()) {
