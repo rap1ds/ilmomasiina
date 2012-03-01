@@ -99,6 +99,7 @@ foreach($signupGadgets->getAllSignupGadgetYears() as $year){
 $page->addContent("</p><br />");
 
 $page->addContent("<p><strong><a href=\"new\"> >> Luo uusi ilmomasiina </a></strong></p>");
+$page->addContent("<p><strong><a href=\"../\"> >> Siirry pois admin-näkymästä </a></strong></p>");
 
 $page->printPage();
 

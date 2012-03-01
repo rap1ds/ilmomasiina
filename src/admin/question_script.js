@@ -208,7 +208,9 @@ function createQuestion(value){
 	question.setAttribute("type", "text");
 	
 	// Asetetaan kyssäri, jos sellaiselle on jo olemassa arvo
-	question.setAttribute("value", value);
+	if (value != null) {
+		question.setAttribute("value", value);
+	}
 	
 	question.setAttribute("name", 'question_' + questions);
 	
