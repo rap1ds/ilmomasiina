@@ -43,7 +43,7 @@ if ($request->isError()) {
 
         if ($passwordProtector->authenticate() !== true) {
             // Needs authentication
-            die();
+            die("You failed to authenticate.");
         }
 
         switch ($request->getAction()) {
@@ -79,6 +79,9 @@ if ($request->isError()) {
                 break;
             case "changestate":
                 require_once 'admin/changestate.php';
+                break;
+            case "csvoutput":
+                require_once 'admin/answers/csv_output.php';
                 break;
             default:
                 require_once 'admin/index.php';

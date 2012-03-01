@@ -8,24 +8,33 @@
 class AdminPasswordProtector {
 
     public function authenticate() {
+        // Workaround for authenticating with HTTP when running PHP as CGI (see also the .htaccess file):
+        // http://www.besthostratings.com/articles/http-auth-php-cgi.html - Comment by Den on Apr 15, 2008 @ 01:47
+        // and http://php.net/manual/en/features.http-auth.php - Comment by h3ndrik on 25-Oct-2011 12:32
+        if (isset($_SERVER['REDIRECT_REMOTE_USER']) && preg_match('/Basic\s+(.*)$/i', $_SERVER['REDIRECT_REMOTE_USER'], $matches)) {
+            list($name, $password) = explode(':', base64_decode($matches[1]));
+            $_SERVER['PHP_AUTH_USER'] = strip_tags($name);
+            $_SERVER['PHP_AUTH_PW'] = strip_tags($password);
+        }
+
         $username = isset($_SERVER["PHP_AUTH_USER"]) ? $_SERVER["PHP_AUTH_USER"] : false;
         $password = isset($_SERVER["PHP_AUTH_PW"]) ? $_SERVER["PHP_AUTH_PW"] : false;
-        
+
         if($username !== false && $password !== false){
-            // Passwork is set, try to authenticate
+            // Password is set, try to authenticate
 
             $authenticationOk = $this->http_authenticate($username, $password);
 
             if($authenticationOk){
                 return true;
             } else {
-                header("WWW-Authenticate: Basic realm=\"Ilmomasiinan ylläpito\"");
+                header('WWW-Authenticate: Basic realm="Ilmomasiinan yllapito"');
                 return false;
             }
 
         } else {
             // Password is not set
-            header("WWW-Authenticate: Basic realm=\"Ilmomasiinan ylläpito\"");
+            header('WWW-Authenticate: Basic realm="Ilmomasiinan yllapito"');
             return false;
         }
     }
