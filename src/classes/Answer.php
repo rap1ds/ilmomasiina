@@ -24,7 +24,7 @@ class Answer{
 		
 		$this->question = $question;
 		$this->signupId = $question->getSignupId();
-		$this->userId   = $userId;
+		$this->userId   = intval($userId);
 		$this->answer   = $answer;
 	}
 	
