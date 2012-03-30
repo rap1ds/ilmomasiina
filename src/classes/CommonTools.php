@@ -142,10 +142,10 @@ class CommonTools{
 		} else {
 			$output = "{";
 		
-			// Because the double quotes are the delimiter they must be replaced 
+			// Because the single and double quotes are delimiters they must be replaced 
 			// with html entity
 			foreach($array as $value){
-				$output .= htmlentities($value) . ",";
+				$output .= htmlentities($value, ENT_QUOTES) . ",";
 			}
 			
 			// FIXME All the data should be stored to database in entities
